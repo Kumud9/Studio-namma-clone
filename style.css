@@ -1,0 +1,735 @@
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+     background: white;
+    color: black;
+    transition: .4s;
+  /* perspective: 1200px; Adds depth for 3D transforms */
+    /* background-color: #111; Gives a nice dark backdrop for the shrink effect */
+}
+#preloader {
+    position: fixed;
+    inset: 0;
+    background: black;
+    z-index: 99999999;
+    transition: opacity 0.5s ease;
+}
+
+#preloader video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.top-nav {
+    width: 100%;
+    height: 8vh;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20%;
+    /* z-index: 99999; */
+    z-index: 20000;
+    color: black;
+    background-color: transparent;
+   
+}
+
+.hero {
+    position: relative;
+    /* z-index: 10; */
+    background-color: white; /* Keeps the hero solid */
+    height: 100vh;
+    width: 100%;
+    perspective: 1200px;
+
+    transition: transform 1.5s cubic-bezier(0.76, 0, 0.24, 1), opacity 1.5s ease, border-radius 1.5s ease;
+}
+.menu {
+    width: 60px;
+    text-align: center;
+    cursor: pointer;
+
+      cursor: pointer;
+    overflow: hidden;
+    height: 1.2em;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.hero.movedown {
+    transform: translateY(100%) rotate(10deg) scale(0.8);
+    opacity: 0;
+    border-radius: 40px;
+}
+
+.bod {
+    
+
+
+        position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 150px;
+    font-weight: bold;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    pointer-events: none;
+}
+
+
+.bod1 {
+    width: 100%;
+    height: 100vh;
+    background-color: aliceblue;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    transform: translateY(-100%);
+    transition: transform 1.5s cubic-bezier(0.76, 0, 0.24, 1);
+    pointer-events: none; /* ← add this */
+}
+
+.bod1.active {
+    transform: translateY(0);
+    pointer-events: all; /* ← add this */
+}
+
+.top-nav2 {
+    width: 100%;
+    height: 8vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20%;
+
+    transition: opacity 0.3s ease;
+}
+.top-nav.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.cont {
+    width: 100%;
+    height: 84vh; /* Adjusted to prevent overflow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-bod1, .right-bod1 {
+    height: 80%;
+    width: 50%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+}
+
+.left-bod1 {
+    font-size: 100px;
+    margin-left: 5%;
+}
+
+.right-bod1 {
+    font-size: 90px;
+    margin-top: 10%;
+    font-weight: 400;
+}
+
+.foot {
+    word-spacing: 10px;
+    margin-left: 5%;
+    position: fixed;
+    bottom: 20px;
+    z-index: 999999;
+    color: black;
+    background-color: transparent;
+    
+
+
+}
+.menu-item{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.menu-item img{
+    position: absolute;
+    left: 0;
+    width: 170px;
+    height: 95px;
+    object-fit: cover;
+    border-radius: 8px;
+
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all .45s cubic-bezier(.76,0,.24,1);
+}
+
+.menu-item span{
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    transition: transform .45s cubic-bezier(.76,0,.24,1);
+    white-space: nowrap;
+}
+
+.menu-item:hover img{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.menu-item:hover span{
+    transform: translateX(190px);
+}
+
+.left-bod1,
+.right-bod1{
+    overflow: visible;
+}
+
+.left-bod1{
+    width: 60%;
+}
+
+.right-bod1{
+    width: 40%;
+}
+.custom-cursor {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+ transform: translate(-50%, 20%);  
+    transition: opacity 0.3s ease;
+    width: 300px;
+    height: 380px;
+
+    border-radius: 10px;
+    overflow: hidden;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    z-index: 999;
+
+    transform-style: preserve-3d;
+    will-change: transform;
+
+}
+.custom-cursor video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.bod2{
+    width: 100%;
+    height: 100vh;
+
+    z-index: 10000;
+    overflow: hidden;
+}
+.bod2 iframe{
+    position: absolute;
+    /* height: 100%;
+    width: 100%; */
+    object-fit: cover; 
+
+    width: 177.77vh;
+    height: 56.25vw;
+
+    min-width: 100vw;
+    min-height: 100vh;
+
+
+}
+.details{
+    height: 100vh;
+    width: 100%;
+   background-color: white;
+    position: relative;
+
+}
+.m-text{
+    background-color: white;
+    width: 90%;
+    height: 80vh;
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   font-weight: 400;
+    font-size: 43px;
+     letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight:400;
+   
+}
+.det{
+    height: 20px;
+    width: 800px;
+    /* background-color: rgb(251, 16, 16); */
+    position: relative;
+    top: 5%;
+    left: 20%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: rgb(132, 127, 127);
+    
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.images1{
+    
+          position: absolute;
+    width: 400px;
+    height: 20px;
+
+    top: 10%;
+    left: 35%;
+
+    pointer-events: none;
+    z-index: 1;
+        
+}
+
+
+
+.images1 img{
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+
+    opacity: 0;
+    border-radius: 10px;;
+  
+   transform: translateY(100px);
+
+    /* transition:
+    opacity 0.2s ease,
+    transform 0.2s ease; */
+
+}
+
+.im1 { height: 400px; width: 300px; top: 0px !important;   left: 0px !important;   rotate: -6deg; }
+.im2 { height: 250px; width: 400px; top: 20px !important;  left: -50px !important; rotate: 3deg;  }
+.im3 { height: 400px; width: 300px; top: -10px !important; left: 10px !important;  rotate: -2deg; }
+.im4 { height: 250px; width: 400px; top: 30px !important;  left: -40px !important; rotate: 5deg;  }
+.im5 { height: 400px; width: 300px; top: 5px !important;   left: 5px !important;   rotate: -4deg; }
+ 
+.vi{
+  height: 100vh;
+  width: 100%;
+ background-color: white;
+ position: relative;
+}
+.port{
+    height:300px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 100px;
+   position: relative;
+   top:300px;
+   cursor: pointer;
+}
+.portfolio{
+    height: 50px;
+    width:140px;
+    background-color: blue;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 10px;
+    pointer-events: none;
+     z-index: 99999;
+    transition: opacity 0.3s ease;
+      position: fixed; 
+    top: 0;
+    left: 0;         
+    opacity: 0;  
+    rotate: -6deg;   
+}
+
+
+.images2{
+    
+          position: absolute;
+    width: 400px;
+    height: 20px;
+
+    top: 40%;
+    left: 60%;
+
+    pointer-events: none;
+    z-index: 1;
+        
+}
+
+
+
+.images2 img{
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+
+    opacity: 0;
+    border-radius: 10px;;
+  
+   transform: translateY(100px);
+
+    /* transition:
+    opacity 0.2s ease,
+    transform 0.2s ease; */
+
+}
+
+.i1 { height: 400px; width: 300px; top: 0px !important;   left: 10px !important;   rotate: -6deg; }
+.i2 { height: 250px; width: 400px; top: 20px !important;  left: -50px !important; rotate: 3deg;  }
+.i3 { height: 400px; width: 300px; top: -10px !important; left: 10px !important;  rotate: -2deg; }
+.i4 { height: 250px; width: 400px; top: 30px !important;  left: -40px !important; rotate: 5deg;  }
+.i5 { height: 400px; width: 300px; top: 5px !important;   left: 5px !important;   rotate: -4deg; }
+
+
+
+.next{
+    width: 100%;
+  background-color: #fff;
+    height: 200vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.boxes{
+position: relative;
+    height: 100vh;
+    background-color: blue;
+    border-radius: 10px;
+      overflow: hidden;
+
+}
+
+.boxes img{
+    height: 100%;
+    width:100%;
+    object-fit: cover;
+    transition: 0.3s ease;
+}
+.in{
+    height: 350px;
+    width: 550px;
+    background-color: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.in video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.in{
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.boxes:hover .in{
+    opacity: 1;
+}
+
+.boxes:hover .in{
+    opacity: 1;
+}
+
+.boxes:hover img{
+    filter: blur(3px) brightness(0.6);
+    transform: scale(1.05);
+    
+}
+ .b1, .b3{
+    opacity: 0;
+    transform: translateX(-300px);
+    transition: all 1s ease;
+}
+
+.b2, .b4{
+    opacity: 0;
+    transform: translateX(300px);
+    transition: all 1s ease;
+}
+
+.show{
+    opacity: 1;
+    transform: translateX(0);
+} 
+.artist{
+    height: 170vh;
+    width: 100%;
+    background-color: white;
+    position: relative;
+     
+
+}
+.art{
+      display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top:20%;
+    width: 100%;
+      flex-wrap: wrap;
+}
+.dir{
+    height: 100px;
+    width: 100%;
+     letter-spacing: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    transition: all 0.3s ease;
+        color: #000;
+        position: relative;
+       
+        /* border: 2px solid black; */
+}
+
+.dir h1{
+    z-index: 10;
+     font-family: impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 200;
+    font-size: 100px;
+}
+.dir p{
+   font-size: 20px;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   position: absolute;
+   color: rgb(85, 81, 81);
+   right: 12%;
+   opacity: 0;
+   visibility: hidden;
+   transition: all 0.3s ease;
+}
+.dir:hover p{
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+/* When hovering over the container, make all divs grey */
+.art:hover .dir {
+
+    color: rgb(213, 211, 211);
+}
+
+/* Keep the hovered div in its original color */
+.art .dir:hover {
+    background: #fff;
+    color: #000;
+}
+.in-vid{
+    position: absolute;
+    top: -10%;
+    left: 5%;
+    height: 250px;
+    width:350px;
+    background-color: chocolate;
+    border-radius: 10px;
+
+     opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.in-vid video{
+    height:100%;
+    width: 100%;
+ border-radius: 10px;   object-fit: cover;
+ z-index: 9999999;
+}
+.art:hover .dir .in-vid{
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Show only the hovered card's video */
+.art .dir:hover .in-vid{
+    opacity: 1;
+    visibility: visible;
+}
+.see{
+    position:absolute;
+    bottom: 5%;left: 50%;
+    font-size: 20px;
+    color: rgb(106, 101, 101);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.icons{
+    height: 40vh;
+    width: 100%;
+  background-color: #fff;
+    position: relative;
+}
+.brands{
+    height: 30vh;
+    width: 100%;
+    position: absolute;
+    
+    bottom: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+   
+}
+.brands svg{
+    height:150px ;
+    width: 250px;
+
+}
+.work{
+    height: 80vh;
+       width: 100%;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 200px;
+}
+.lw{
+    font-size: 150px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 300;
+    line-height: 0.9;
+    position: relative;
+     
+}
+.lw p{
+    position: relative;
+    left: -5%;   
+}
+.tog{
+    position: absolute;
+    left: 25%;
+}
+  
+    .lw img{
+    position: absolute;
+    top: 300px;   /* below LET'S */
+    left: -5%;  /* adjust horizontally */
+    width: 160px;
+    height: 110px;
+
+}
+.built{
+    font-size:22px;
+   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   color: rgb(0, 0, 0);
+
+}
+.hell{
+    position: absolute;
+    top: 60%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(128, 127, 127);
+    font-size: 15px;
+}
+.last{
+height: 80vh;
+width: 100%;
+
+}
+.end{
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.end video{
+    height: 170px;
+    width: 270px;
+    border-radius: 20px;
+}
+body.dark {
+    background: #0a0a0a;
+    color: #E7E7E2;
+    --bg: #0a0a0a;
+    --black: #E7E7E2;
+}
+body.dark .top-nav { background: #0a0a0a; color: #fff; }
+body.dark .hero { background: #0a0a0a; color: #fff;}
+body.dark .bod1 { background: #111; color: #fff;}
+body.dark .bod { background: #111; color: #fff;}
+body.dark .bod2 { background: #111; color: #fff;}
+body.dark .details{ background: #111; color: #fff;}
+body.dark .m-text{ background: #111; color: #fff;}
+body.dark .vi{ background: #111; color: #fff;}
+body.dark .next{ background: #111; color: #fff;}
+body.dark .artist{ background: #111; color: #fff;}
+body.dark .icons{ background: #111; color: #fff;}
+body.dark .work{ background: #111; color: #fff;}
+body.dark .last{ background: #111; color: #fff;}
+/* body.dark .art{ background: #111; color: #fff;}
+body.dark .dir{  color: #fff;}
+body.dark .dir:hover{color: #fff;} */
+/* Dark Mode */
+body.dark .artist{
+    background: #111;
+}
+
+body.dark .dir{
+    color: #fff;          /* All headings white initially */
+}
+
+body.dark .dir p{
+    color: #bdbdbd;
+}
+
+/* When hovering over the container, all headings become gray */
+body.dark .art:hover .dir{
+    color: #666;
+}
+
+/* Only the hovered heading stays white */
+body.dark .art:hover .dir:hover{
+    color: #fff;
+}
+
+/* Keep background dark */
+body.dark .art .dir:hover{
+    background: #111;
+}
+
+#dark{
+    cursor: pointer;
+}
